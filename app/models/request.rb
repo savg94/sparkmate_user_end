@@ -13,6 +13,10 @@ class Request < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :providers,
+             :through => :active_gigs,
+             :source => :provider
+
   # Validations
 
   # Scopes

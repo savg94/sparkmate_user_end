@@ -10,6 +10,10 @@ class Provider < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :requests,
+             :through => :active_gigs,
+             :source => :request
+
   has_many   :users,
              :through => :requests,
              :source => :user

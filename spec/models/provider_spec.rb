@@ -12,6 +12,8 @@ RSpec.describe Provider, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:requests) }
+
     it { should have_many(:users) }
 
     end

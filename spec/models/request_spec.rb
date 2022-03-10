@@ -14,6 +14,8 @@ RSpec.describe Request, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:providers) }
+
     end
 
     describe "Validations" do
