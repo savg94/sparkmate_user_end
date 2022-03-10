@@ -6,36 +6,28 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @chat.user.present? %>
           <%= link_to chat.user, chat.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Provider</dt>
-      <!-- Display provider_id start -->
       <dd>
         <% if @chat.provider.present? %>
           <%= link_to chat.provider, chat.provider %>
         <% end %>
       </dd>
-      <!-- Display provider_id end -->
 
       <dt>Message</dt>
-      <!-- Display message start -->
       <dd><%= chat.message %></dd>
-      <!-- Display message end -->
 
       <dt>Gig</dt>
-      <!-- Display gig_id start -->
       <dd>
         <% if @chat.gig.present? %>
           <%= link_to chat.gig, chat.gig %>
         <% end %>
       </dd>
-      <!-- Display gig_id end -->
 
     </dl>
 
@@ -44,7 +36,6 @@
         <%= link_to_show_or_back chat, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link chat start -->
       <div class="col">
         <% if current_user == @chat.user %>
           <%= link_to edit_chat_url(chat), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -52,9 +43,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link chat end -->
 
-      <!-- Delete link chat start -->
       <div class="col">
         <% if current_user == @chat.user %>
           <%= link_to chat, method: :delete, data: { confirm: "Do you really want to delete this chat?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -62,7 +51,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link chat end -->
     </div>
   </div>
 

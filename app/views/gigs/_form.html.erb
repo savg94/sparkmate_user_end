@@ -1,7 +1,6 @@
 <% was_validated = gig.errors.any? %>
 
 <%= form_with(model: gig, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for request_id start -->
   <div class="form-group">
     <% request_class = "form-control" %>
     <% request_was_invalid = gig.errors.include?(:request) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :request_id %>
-    <!-- Input for request_id start -->
     <%= f.collection_select :request_id, Request.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for request_id end -->
     <% if request_was_invalid %>
       <% gig.errors.full_messages_for(:request).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for request_id end -->
-  <!-- Label and input for provider_id start -->
   <div class="form-group">
     <% provider_class = "form-control" %>
     <% provider_was_invalid = gig.errors.include?(:provider) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :provider_id %>
-    <!-- Input for provider_id start -->
     <%= f.collection_select :provider_id, Provider.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for provider_id end -->
     <% if provider_was_invalid %>
       <% gig.errors.full_messages_for(:provider).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for provider_id end -->
-  <!-- Label and input for status start -->
   <div class="form-group">
     <% status_class = "form-control" %>
     <% status_was_invalid = gig.errors.include?(:status) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :status %>
-    <!-- Input for status start -->
     <%= f.text_field :status, class: status_class, placeholder: "Enter status" %>
-    <!-- Input for status end -->
     <% if status_was_invalid %>
       <% gig.errors.full_messages_for(:status).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for status end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

@@ -1,32 +1,18 @@
-<!-- Form gig start -->
 <%= form_with(model: @gig, local: true) do |f| %>
-<!-- Form gig end -->
 
-  <!-- Label and input for request_id start -->
-  <!-- Input for request_id start -->
   <%= f.hidden_field :request_id, value: @request.id %>
-  <!-- Input for request_id end -->
-  <!-- Label and input for request_id end -->
 
-  <!-- Label and input for provider_id start -->
   <div class="form-group">
     <%= f.label :provider_id %>
 
-    <!-- Input for provider_id start -->
     <%= f.collection_select :provider_id, Provider.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for provider_id end -->
   </div>
-  <!-- Label and input for provider_id end -->
 
-  <!-- Label and input for status start -->
   <div class="form-group">
     <%= f.label :status %>
 
-    <!-- Input for status start -->
     <%= f.text_field :status, class: "form-control" %>
-    <!-- Input for status end -->
   </div>
-  <!-- Label and input for status end -->
 
   <%= f.submit "Create gig", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

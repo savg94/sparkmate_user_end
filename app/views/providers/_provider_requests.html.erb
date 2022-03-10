@@ -6,11 +6,9 @@
   <ul class="list-group list-group-flush">
     <% @provider.requests.each do |request| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/requests/<%= request.id %>">
           <%= request %>
         </a>
-        <!-- Show link end -->
 
       </li>
     <% end %>

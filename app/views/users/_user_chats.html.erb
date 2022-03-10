@@ -10,18 +10,14 @@
   <ul class="list-group list-group-flush">
     <% @user.chats.each do |chat| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to chat, chat %>
-        <!-- Show link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="user_chats_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "users/user_chats_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

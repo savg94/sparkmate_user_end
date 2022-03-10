@@ -1,12 +1,7 @@
 <% was_validated = chat.errors.any? %>
 
 <%= form_with(model: chat, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for provider_id start -->
   <div class="form-group">
     <% provider_class = "form-control" %>
     <% provider_was_invalid = chat.errors.include?(:provider) %>
@@ -20,9 +15,7 @@
     <% end %>
 
     <%= f.label :provider_id %>
-    <!-- Input for provider_id start -->
     <%= f.collection_select :provider_id, Provider.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for provider_id end -->
     <% if provider_was_invalid %>
       <% chat.errors.full_messages_for(:provider).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -31,8 +24,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for provider_id end -->
-  <!-- Label and input for message start -->
   <div class="form-group">
     <% message_class = "form-control" %>
     <% message_was_invalid = chat.errors.include?(:message) %>
@@ -46,9 +37,7 @@
     <% end %>
 
     <%= f.label :message %>
-    <!-- Input for message start -->
     <%= f.text_field :message, class: message_class, placeholder: "Enter message" %>
-    <!-- Input for message end -->
     <% if message_was_invalid %>
       <% chat.errors.full_messages_for(:message).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -57,8 +46,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for message end -->
-  <!-- Label and input for gig_id start -->
   <div class="form-group">
     <% gig_class = "form-control" %>
     <% gig_was_invalid = chat.errors.include?(:gig) %>
@@ -72,9 +59,7 @@
     <% end %>
 
     <%= f.label :gig_id %>
-    <!-- Input for gig_id start -->
     <%= f.collection_select :gig_id, Gig.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for gig_id end -->
     <% if gig_was_invalid %>
       <% chat.errors.full_messages_for(:gig).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -83,6 +68,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for gig_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

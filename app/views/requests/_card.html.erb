@@ -6,41 +6,31 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Pickup datetime</dt>
-      <!-- Display pickup_datetime start -->
       <dd><%= request.pickup_datetime %></dd>
-      <!-- Display pickup_datetime end -->
 
       <dt>Pickup location</dt>
-      <!-- Display pickup_location start -->
       <dd>
         <div>
           <%= render partial: "requests/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display pickup_location end -->
 
       <dt>Dropoff datetime</dt>
-      <!-- Display dropoff_datetime start -->
       <dd><%= request.dropoff_datetime %></dd>
-      <!-- Display dropoff_datetime end -->
 
       <dt>Dropoff location</dt>
-      <!-- Display dropoff_location start -->
       <dd>
         <div>
           <%= render partial: "requests/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display dropoff_location end -->
 
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @request.user.present? %>
           <%= link_to request.user, request.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
     </dl>
 
@@ -49,7 +39,6 @@
         <%= link_to_show_or_back request, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link request start -->
       <div class="col">
         <% if current_user == @request.user %>
           <%= link_to edit_request_url(request), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -57,9 +46,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link request end -->
 
-      <!-- Delete link request start -->
       <div class="col">
         <% if current_user == @request.user %>
           <%= link_to request, method: :delete, data: { confirm: "Do you really want to delete this request?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -67,7 +54,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link request end -->
     </div>
   </div>
 

@@ -1,7 +1,6 @@
 <% was_validated = add_on_service.errors.any? %>
 
 <%= form_with(model: add_on_service, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for fast_charge start -->
   <div class="form-check">
     <% fast_charge_class = "form-check-input" %>
     <% fast_charge_was_invalid = add_on_service.errors.include?(:fast_charge) %>
@@ -25,8 +24,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for fast_charge end -->
-  <!-- Label and input for regular_charge start -->
   <div class="form-check">
     <% regular_charge_class = "form-check-input" %>
     <% regular_charge_was_invalid = add_on_service.errors.include?(:regular_charge) %>
@@ -50,8 +47,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for regular_charge end -->
-  <!-- Label and input for interior_cleaning start -->
   <div class="form-check">
     <% interior_cleaning_class = "form-check-input" %>
     <% interior_cleaning_was_invalid = add_on_service.errors.include?(:interior_cleaning) %>
@@ -75,8 +70,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for interior_cleaning end -->
-  <!-- Label and input for exterior_cleaning start -->
   <div class="form-check">
     <% exterior_cleaning_class = "form-check-input" %>
     <% exterior_cleaning_was_invalid = add_on_service.errors.include?(:exterior_cleaning) %>
@@ -100,8 +93,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for exterior_cleaning end -->
-  <!-- Label and input for daily_checks start -->
   <div class="form-check">
     <% daily_checks_class = "form-check-input" %>
     <% daily_check_was_invalid = add_on_service.errors.include?(:daily_check) %>
@@ -125,8 +116,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for daily_checks end -->
-  <!-- Label and input for scheduled_maintenance start -->
   <div class="form-check">
     <% scheduled_maintenance_class = "form-check-input" %>
     <% scheduled_maintenance_was_invalid = add_on_service.errors.include?(:scheduled_maintenance) %>
@@ -150,8 +139,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for scheduled_maintenance end -->
-  <!-- Label and input for maintenance_datetime start -->
   <div class="form-group">
     <% maintenance_datetime_class = "form-control" %>
     <% maintenance_datetime_was_invalid = add_on_service.errors.include?(:maintenance_datetime) %>
@@ -165,9 +152,7 @@
     <% end %>
 
     <%= f.label :maintenance_datetime %>
-    <!-- Input for maintenance_datetime start -->
     <%= f.datetime_select :maintenance_datetime, class: maintenance_datetime_class, placeholder: "Enter maintenance datetime" %>
-    <!-- Input for maintenance_datetime end -->
     <% if maintenance_datetime_was_invalid %>
       <% add_on_service.errors.full_messages_for(:maintenance_datetime).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -176,8 +161,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for maintenance_datetime end -->
-  <!-- Label and input for maintenance_location start -->
   <div class="form-group">
     <% maintenance_location_class = "form-control" %>
     <% maintenance_location_was_invalid = add_on_service.errors.include?(:maintenance_location) %>
@@ -191,9 +174,7 @@
     <% end %>
 
     <%= f.label :maintenance_location %>
-    <!-- Input for maintenance_location start -->
     <%= f.text_field :maintenance_location, class: maintenance_location_class, placeholder: "Enter maintenance location" %>
-    <!-- Input for maintenance_location end -->
     <% if maintenance_location_was_invalid %>
       <% add_on_service.errors.full_messages_for(:maintenance_location).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -202,8 +183,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for maintenance_location end -->
-  <!-- Label and input for request_id start -->
   <div class="form-group">
     <% request_class = "form-control" %>
     <% request_was_invalid = add_on_service.errors.include?(:request) %>
@@ -217,9 +196,7 @@
     <% end %>
 
     <%= f.label :request_id %>
-    <!-- Input for request_id start -->
     <%= f.collection_select :request_id, Request.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for request_id end -->
     <% if request_was_invalid %>
       <% add_on_service.errors.full_messages_for(:request).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -228,6 +205,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for request_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

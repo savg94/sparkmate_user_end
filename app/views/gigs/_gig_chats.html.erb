@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @gig.chats.each do |chat| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to chat, chat %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == chat.user %>
           <%= link_to chat, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="gig_chats_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "gigs/gig_chats_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

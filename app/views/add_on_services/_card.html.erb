@@ -6,57 +6,39 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Fast charge</dt>
-      <!-- Display fast_charge start -->
       <dd><%= add_on_service.fast_charge %></dd>
-      <!-- Display fast_charge end -->
 
       <dt>Regular charge</dt>
-      <!-- Display regular_charge start -->
       <dd><%= add_on_service.regular_charge %></dd>
-      <!-- Display regular_charge end -->
 
       <dt>Interior cleaning</dt>
-      <!-- Display interior_cleaning start -->
       <dd><%= add_on_service.interior_cleaning %></dd>
-      <!-- Display interior_cleaning end -->
 
       <dt>Exterior cleaning</dt>
-      <!-- Display exterior_cleaning start -->
       <dd><%= add_on_service.exterior_cleaning %></dd>
-      <!-- Display exterior_cleaning end -->
 
       <dt>Daily checks</dt>
-      <!-- Display daily_checks start -->
       <dd><%= add_on_service.daily_checks %></dd>
-      <!-- Display daily_checks end -->
 
       <dt>Scheduled maintenance</dt>
-      <!-- Display scheduled_maintenance start -->
       <dd><%= add_on_service.scheduled_maintenance %></dd>
-      <!-- Display scheduled_maintenance end -->
 
       <dt>Maintenance datetime</dt>
-      <!-- Display maintenance_datetime start -->
       <dd><%= add_on_service.maintenance_datetime %></dd>
-      <!-- Display maintenance_datetime end -->
 
       <dt>Maintenance location</dt>
-      <!-- Display maintenance_location start -->
       <dd>
         <div>
           <%= render partial: "add_on_services/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display maintenance_location end -->
 
       <dt>Request</dt>
-      <!-- Display request_id start -->
       <dd>
         <% if @add_on_service.request.present? %>
           <%= link_to add_on_service.request, add_on_service.request %>
         <% end %>
       </dd>
-      <!-- Display request_id end -->
 
     </dl>
 
@@ -65,21 +47,17 @@
         <%= link_to_show_or_back add_on_service, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link add_on_service start -->
       <div class="col">
         <%= link_to edit_add_on_service_url(add_on_service), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link add_on_service end -->
 
-      <!-- Delete link add_on_service start -->
       <div class="col">
         <%= link_to add_on_service, method: :delete, data: { confirm: "Do you really want to delete this add_on_service?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link add_on_service end -->
     </div>
   </div>
 

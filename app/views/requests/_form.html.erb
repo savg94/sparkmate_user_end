@@ -1,7 +1,6 @@
 <% was_validated = request.errors.any? %>
 
 <%= form_with(model: request, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for pickup_datetime start -->
   <div class="form-group">
     <% pickup_datetime_class = "form-control" %>
     <% pickup_datetime_was_invalid = request.errors.include?(:pickup_datetime) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :pickup_datetime %>
-    <!-- Input for pickup_datetime start -->
     <%= f.datetime_select :pickup_datetime, class: pickup_datetime_class, placeholder: "Enter pickup datetime" %>
-    <!-- Input for pickup_datetime end -->
     <% if pickup_datetime_was_invalid %>
       <% request.errors.full_messages_for(:pickup_datetime).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for pickup_datetime end -->
-  <!-- Label and input for pickup_location start -->
   <div class="form-group">
     <% pickup_location_class = "form-control" %>
     <% pickup_location_was_invalid = request.errors.include?(:pickup_location) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :pickup_location %>
-    <!-- Input for pickup_location start -->
     <%= f.text_field :pickup_location, class: pickup_location_class, placeholder: "Enter pickup location" %>
-    <!-- Input for pickup_location end -->
     <% if pickup_location_was_invalid %>
       <% request.errors.full_messages_for(:pickup_location).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for pickup_location end -->
-  <!-- Label and input for dropoff_datetime start -->
   <div class="form-group">
     <% dropoff_datetime_class = "form-control" %>
     <% dropoff_datetime_was_invalid = request.errors.include?(:dropoff_datetime) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :dropoff_datetime %>
-    <!-- Input for dropoff_datetime start -->
     <%= f.datetime_select :dropoff_datetime, class: dropoff_datetime_class, placeholder: "Enter dropoff datetime" %>
-    <!-- Input for dropoff_datetime end -->
     <% if dropoff_datetime_was_invalid %>
       <% request.errors.full_messages_for(:dropoff_datetime).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for dropoff_datetime end -->
-  <!-- Label and input for dropoff_location start -->
   <div class="form-group">
     <% dropoff_location_class = "form-control" %>
     <% dropoff_location_was_invalid = request.errors.include?(:dropoff_location) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :dropoff_location %>
-    <!-- Input for dropoff_location start -->
     <%= f.text_field :dropoff_location, class: dropoff_location_class, placeholder: "Enter dropoff location" %>
-    <!-- Input for dropoff_location end -->
     <% if dropoff_location_was_invalid %>
       <% request.errors.full_messages_for(:dropoff_location).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,11 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for dropoff_location end -->
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
