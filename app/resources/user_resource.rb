@@ -9,6 +9,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :requests
+
   has_many   :chats
 
   # Indirect associations
