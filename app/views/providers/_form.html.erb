@@ -1,0 +1,57 @@
+<% was_validated = provider.errors.any? %>
+
+<%= form_with(model: provider, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <% name_class = "form-control" %>
+    <% name_was_invalid = provider.errors.include?(:name) %>
+
+    <% if was_validated %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
+      <% else %>
+        <% name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :name %>
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <!-- Input for name end -->
+    <% if name_was_invalid %>
+      <% provider.errors.full_messages_for(:name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for name end -->
+  <!-- Label and input for last_name start -->
+  <div class="form-group">
+    <% last_name_class = "form-control" %>
+    <% last_name_was_invalid = provider.errors.include?(:last_name) %>
+
+    <% if was_validated %>
+      <% if last_name_was_invalid %>
+        <% last_name_class << " is-invalid" %>
+      <% else %>
+        <% last_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :last_name %>
+    <!-- Input for last_name start -->
+    <%= f.text_field :last_name, class: last_name_class, placeholder: "Enter last name" %>
+    <!-- Input for last_name end -->
+    <% if last_name_was_invalid %>
+      <% provider.errors.full_messages_for(:last_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for last_name end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
