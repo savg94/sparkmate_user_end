@@ -9,6 +9,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :providers,
+             :through => :requests,
+             :source => :providers
+
   # Validations
 
   # Scopes

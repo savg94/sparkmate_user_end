@@ -10,6 +10,10 @@ class Provider < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :requests,
+             :source => :user
+
   # Validations
 
   # Scopes
