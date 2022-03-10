@@ -1,27 +1,22 @@
 class GigsController < ApplicationController
   before_action :set_gig, only: %i[show edit update destroy]
 
-  # GET /gigs
   def index
     @q = Gig.ransack(params[:q])
     @gigs = @q.result(distinct: true).includes(:request, :provider,
                                                :chats).page(params[:page]).per(10)
   end
 
-  # GET /gigs/1
   def show
     @chat = Chat.new
   end
 
-  # GET /gigs/new
   def new
     @gig = Gig.new
   end
 
-  # GET /gigs/1/edit
   def edit; end
 
-  # POST /gigs
   def create
     @gig = Gig.new(gig_params)
 
@@ -37,7 +32,6 @@ class GigsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /gigs/1
   def update
     if @gig.update(gig_params)
       redirect_to @gig, notice: "Gig was successfully updated."
@@ -46,7 +40,6 @@ class GigsController < ApplicationController
     end
   end
 
-  # DELETE /gigs/1
   def destroy
     @gig.destroy
     message = "Gig was successfully deleted."
@@ -59,12 +52,10 @@ class GigsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_gig
     @gig = Gig.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def gig_params
     params.require(:gig).permit(:request_id, :provider_id, :status)
   end

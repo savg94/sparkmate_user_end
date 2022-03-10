@@ -4,25 +4,20 @@ class ChatsController < ApplicationController
 
   before_action :set_chat, only: %i[show edit update destroy]
 
-  # GET /chats
   def index
     @q = current_user.chats.ransack(params[:q])
     @chats = @q.result(distinct: true).includes(:user, :provider,
                                                 :gig).page(params[:page]).per(10)
   end
 
-  # GET /chats/1
   def show; end
 
-  # GET /chats/new
   def new
     @chat = Chat.new
   end
 
-  # GET /chats/1/edit
   def edit; end
 
-  # POST /chats
   def create
     @chat = Chat.new(chat_params)
 
@@ -38,7 +33,6 @@ class ChatsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /chats/1
   def update
     if @chat.update(chat_params)
       redirect_to @chat, notice: "Chat was successfully updated."
@@ -47,7 +41,6 @@ class ChatsController < ApplicationController
     end
   end
 
-  # DELETE /chats/1
   def destroy
     @chat.destroy
     message = "Chat was successfully deleted."
@@ -68,12 +61,10 @@ class ChatsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_chat
     @chat = Chat.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def chat_params
     params.require(:chat).permit(:user_id, :provider_id, :message, :gig_id)
   end
