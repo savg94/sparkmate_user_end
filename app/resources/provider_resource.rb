@@ -7,6 +7,9 @@ class ProviderResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :active_gigs,
+             resource: GigResource
+
   has_many   :chats
 
   # Indirect associations
