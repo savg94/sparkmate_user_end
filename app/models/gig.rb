@@ -12,6 +12,12 @@ class Gig < ApplicationRecord
 
   # Validations
 
+  validates :provider_id, presence: true
+
+  validates :request_id, presence: true
+
+  validates :status, presence: true
+
   # Scopes
 
   def to_s

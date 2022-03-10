@@ -13,6 +13,14 @@ class Chat < ApplicationRecord
 
   # Validations
 
+  validates :gig_id, presence: true
+
+  validates :message, presence: true
+
+  validates :provider_id, presence: true
+
+  validates :user_id, presence: true
+
   # Scopes
 
   def to_s

@@ -13,5 +13,10 @@ RSpec.describe Gig, type: :model do
   end
 
   describe "Validations" do
+    it { should validate_presence_of(:provider_id) }
+
+    it { should validate_presence_of(:request_id) }
+
+    it { should validate_presence_of(:status) }
   end
 end
