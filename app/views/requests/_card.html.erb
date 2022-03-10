@@ -39,16 +39,20 @@
 
       <!-- Edit link request start -->
       <div class="col">
-        <%= link_to edit_request_url(request), class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-edit"></i>
+        <% if current_user == @request.user %>
+          <%= link_to edit_request_url(request), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Edit link request end -->
 
       <!-- Delete link request start -->
       <div class="col">
-        <%= link_to request, method: :delete, data: { confirm: "Do you really want to delete this request?" }, class: "btn btn-block btn-outline-secondary" do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == @request.user %>
+          <%= link_to request, method: :delete, data: { confirm: "Do you really want to delete this request?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
       <!-- Delete link request end -->
