@@ -16,7 +16,7 @@
 
     <%= f.label :request_id %>
     <!-- Input for request_id start -->
-    <%= f.number_field :request_id, class: request_class, placeholder: "Enter request" %>
+    <%= f.collection_select :request_id, Request.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for request_id end -->
     <% if request_was_invalid %>
       <% gig.errors.full_messages_for(:request).each do |message| %>
