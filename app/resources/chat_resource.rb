@@ -9,6 +9,8 @@ class ChatResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :gig
+
   belongs_to :provider
 
   belongs_to :user

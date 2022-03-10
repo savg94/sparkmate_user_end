@@ -8,6 +8,8 @@ class GigResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :chats
+
   belongs_to :provider
 
   belongs_to :request
