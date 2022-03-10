@@ -5,7 +5,8 @@ class ChatsController < ApplicationController
 
   # GET /chats
   def index
-    @chats = current_user.chats.page(params[:page]).per(10)
+    @q = current_user.chats.ransack(params[:q])
+    @chats = @q.result(:distinct => true).includes(:user, :provider, :gig).page(params[:page]).per(10)
   end
 
   # GET /chats/1

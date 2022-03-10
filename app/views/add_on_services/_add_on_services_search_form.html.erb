@@ -1,0 +1,224 @@
+<%= search_form_for @q, :class => collapse_search_form, :id => "add_on_services_filters" do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :maintenance_datetime, "Maintenance datetime" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='maintenance_datetimegteqPicker' data-target-input="nearest">
+          <%= f.text_field :maintenance_datetime_gteq, :class => "form-control datetimepicker-input", :placeholder => "Maintenance datetime greater than or equal to", :data => {:target => '#maintenance_datetimegteqPicker'} %>
+          <div class="input-group-append" data-target='#maintenance_datetimegteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='maintenance_datetimelteqPicker' data-target-input="nearest">
+          <%= f.text_field :maintenance_datetime_lteq, :class => "form-control datetimepicker-input", :placeholder => "Maintenance datetime less than or equal to", :data => {:target => '#maintenance_datetimelteqPicker'} %>
+          <div class="input-group-append" data-target='#maintenance_datetimelteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#maintenance_datetimegteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#maintenance_datetimelteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#maintenance_datetimegteqPicker').on("dp.change", function (e) {
+              $('#maintenance_datetimelteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#maintenance_datetimelteqPicker').on("dp.change", function (e) {
+              $('#maintenance_datetimegteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+  <div class="form-group">
+    <%= f.label :scheduled_maintenance_eq, "Scheduled maintenance" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :scheduled_maintenance_eq, "1", checked: ((params[:q] && params[:q][:scheduled_maintenance_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :scheduled_maintenance_eq, "0", checked: ((params[:q] && params[:q][:scheduled_maintenance_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :scheduled_maintenance_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :daily_checks_eq, "Daily checks" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :daily_checks_eq, "1", checked: ((params[:q] && params[:q][:daily_checks_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :daily_checks_eq, "0", checked: ((params[:q] && params[:q][:daily_checks_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :daily_checks_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :exterior_cleaning_eq, "Exterior cleaning" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :exterior_cleaning_eq, "1", checked: ((params[:q] && params[:q][:exterior_cleaning_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :exterior_cleaning_eq, "0", checked: ((params[:q] && params[:q][:exterior_cleaning_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :exterior_cleaning_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :interior_cleaning_eq, "Interior cleaning" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :interior_cleaning_eq, "1", checked: ((params[:q] && params[:q][:interior_cleaning_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :interior_cleaning_eq, "0", checked: ((params[:q] && params[:q][:interior_cleaning_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :interior_cleaning_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :regular_charge_eq, "Regular charge" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :regular_charge_eq, "1", checked: ((params[:q] && params[:q][:regular_charge_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :regular_charge_eq, "0", checked: ((params[:q] && params[:q][:regular_charge_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :regular_charge_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :fast_charge_eq, "Fast charge" %>
+    <div>
+      <label class="radio-inline">
+        <%= f.radio_button :fast_charge_eq, "1", checked: ((params[:q] && params[:q][:fast_charge_eq]) == "1" ? "checked" : "") %> Yes
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :fast_charge_eq, "0", checked: ((params[:q] && params[:q][:fast_charge_eq]) == "0" ? "checked" : "")%> No
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :fast_charge_eq, ""%> Either
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='created_atgteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Created at greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='created_atlteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Created at less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#created_atgteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atlteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atgteqPicker').on("dp.change", function (e) {
+              $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#created_atlteqPicker').on("dp.change", function (e) {
+              $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+  <div class="form-group">
+    <%= f.label :pickup_datetime, "Request Pickup datetime" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='requestgteqpickup_datetimePicker' data-target-input="nearest">
+          <%= f.text_field :request_pickup_datetime_gteq, :class => "form-control datetimepicker-input", :placeholder => "Request Pickup datetime greater than or equal to", :data => {:target => '#requestgteqpickup_datetimePicker'} %>
+          <div class="input-group-append" data-target='#requestgteqpickup_datetimePicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='requestlteqpickup_datetimePicker' data-target-input="nearest">
+          <%= f.text_field :request_pickup_datetime_lteq, :class => "form-control datetimepicker-input", :placeholder => "Request Pickup datetime less than or equal to", :data => {:target => '#requestlteqpickup_datetimePicker'} %>
+          <div class="input-group-append" data-target='#requestlteqpickup_datetimePicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#requestgteqpickup_datetimePicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#requestlteqpickup_datetimePicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#requestgteqpickup_datetimePicker').on("dp.change", function (e) {
+              $('#requestlteqpickup_datetimePicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#requestlteqpickup_datetimePicker').on("dp.change", function (e) {
+              $('#requestgteqpickup_datetimePicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+  <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+  <a href="/add_on_services" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+
+<% end %>
+
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#add_on_services_filters">
+  Show filters
+</a>

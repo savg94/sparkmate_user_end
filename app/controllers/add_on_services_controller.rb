@@ -3,7 +3,8 @@ class AddOnServicesController < ApplicationController
 
   # GET /add_on_services
   def index
-    @add_on_services = AddOnService.page(params[:page]).per(10)
+    @q = AddOnService.ransack(params[:q])
+    @add_on_services = @q.result(:distinct => true).includes(:request).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@add_on_services.where.not(:maintenance_location_latitude => nil)) do |add_on_service, marker|
       marker.lat add_on_service.maintenance_location_latitude
       marker.lng add_on_service.maintenance_location_longitude

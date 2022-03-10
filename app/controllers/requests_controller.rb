@@ -5,7 +5,8 @@ class RequestsController < ApplicationController
 
   # GET /requests
   def index
-    @requests = current_user.requests.page(params[:page]).per(10)
+    @q = current_user.requests.ransack(params[:q])
+    @requests = @q.result(:distinct => true).includes(:user, :add_on_services, :active_gigs, :providers).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@requests.where.not(:dropoff_location_latitude => nil)) do |request, marker|
       marker.lat request.dropoff_location_latitude
       marker.lng request.dropoff_location_longitude

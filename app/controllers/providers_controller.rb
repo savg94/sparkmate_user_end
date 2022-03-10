@@ -3,7 +3,8 @@ class ProvidersController < ApplicationController
 
   # GET /providers
   def index
-    @providers = Provider.page(params[:page]).per(10)
+    @q = Provider.ransack(params[:q])
+    @providers = @q.result(:distinct => true).includes(:chats, :active_gigs, :users, :requests).page(params[:page]).per(10)
   end
 
   # GET /providers/1
