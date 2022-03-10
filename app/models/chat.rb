@@ -1,6 +1,8 @@
 class Chat < ApplicationRecord
   # Direct associations
 
+  belongs_to :gig
+
   belongs_to :provider,
              :counter_cache => true
 
