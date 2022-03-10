@@ -5,7 +5,7 @@ class ChatsController < ApplicationController
 
   # GET /chats
   def index
-    @chats = Chat.all
+    @chats = current_user.chats.page(params[:page]).per(10)
   end
 
   # GET /chats/1
