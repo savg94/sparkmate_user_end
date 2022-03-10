@@ -1,0 +1,56 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Chat #<%= chat.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>User</dt>
+      <!-- Display user_id start -->
+      <dd><%= chat.user_id %></dd>
+      <!-- Display user_id end -->
+
+      <dt>Provider</dt>
+      <!-- Display provider_id start -->
+      <dd><%= chat.provider_id %></dd>
+      <!-- Display provider_id end -->
+
+      <dt>Message</dt>
+      <!-- Display message start -->
+      <dd><%= chat.message %></dd>
+      <!-- Display message end -->
+
+      <dt>Gig</dt>
+      <!-- Display gig_id start -->
+      <dd><%= chat.gig_id %></dd>
+      <!-- Display gig_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back chat, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link chat start -->
+      <div class="col">
+        <%= link_to edit_chat_url(chat), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link chat end -->
+
+      <!-- Delete link chat start -->
+      <div class="col">
+        <%= link_to chat, method: :delete, data: { confirm: "Do you really want to delete this chat?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link chat end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(chat.updated_at) %> ago
+  </div>
+</div>

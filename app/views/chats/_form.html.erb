@@ -1,0 +1,109 @@
+<% was_validated = chat.errors.any? %>
+
+<%= form_with(model: chat, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = chat.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <!-- Input for user_id start -->
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
+    <!-- Input for user_id end -->
+    <% if user_was_invalid %>
+      <% chat.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for user_id end -->
+  <!-- Label and input for provider_id start -->
+  <div class="form-group">
+    <% provider_class = "form-control" %>
+    <% provider_was_invalid = chat.errors.include?(:provider) %>
+
+    <% if was_validated %>
+      <% if provider_was_invalid %>
+        <% provider_class << " is-invalid" %>
+      <% else %>
+        <% provider_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :provider_id %>
+    <!-- Input for provider_id start -->
+    <%= f.number_field :provider_id, class: provider_class, placeholder: "Enter provider" %>
+    <!-- Input for provider_id end -->
+    <% if provider_was_invalid %>
+      <% chat.errors.full_messages_for(:provider).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for provider_id end -->
+  <!-- Label and input for message start -->
+  <div class="form-group">
+    <% message_class = "form-control" %>
+    <% message_was_invalid = chat.errors.include?(:message) %>
+
+    <% if was_validated %>
+      <% if message_was_invalid %>
+        <% message_class << " is-invalid" %>
+      <% else %>
+        <% message_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :message %>
+    <!-- Input for message start -->
+    <%= f.text_field :message, class: message_class, placeholder: "Enter message" %>
+    <!-- Input for message end -->
+    <% if message_was_invalid %>
+      <% chat.errors.full_messages_for(:message).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for message end -->
+  <!-- Label and input for gig_id start -->
+  <div class="form-group">
+    <% gig_class = "form-control" %>
+    <% gig_was_invalid = chat.errors.include?(:gig) %>
+
+    <% if was_validated %>
+      <% if gig_was_invalid %>
+        <% gig_class << " is-invalid" %>
+      <% else %>
+        <% gig_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :gig_id %>
+    <!-- Input for gig_id start -->
+    <%= f.number_field :gig_id, class: gig_class, placeholder: "Enter gig" %>
+    <!-- Input for gig_id end -->
+    <% if gig_was_invalid %>
+      <% chat.errors.full_messages_for(:gig).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for gig_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

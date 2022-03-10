@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :chats
   resources :gigs
   resources :providers
   resources :add_on_services
