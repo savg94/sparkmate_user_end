@@ -4,6 +4,8 @@ RSpec.describe Provider, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:active_gigs) }
+
     it { should have_many(:chats) }
 
     end
