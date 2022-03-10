@@ -4,6 +4,8 @@ RSpec.describe Chat, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:provider) }
+
     it { should belong_to(:user) }
 
     end
