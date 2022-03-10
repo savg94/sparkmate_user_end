@@ -13,5 +13,12 @@ RSpec.describe Chat, type: :model do
   end
 
   describe "Validations" do
+    it { should validate_presence_of(:gig_id) }
+
+    it { should validate_presence_of(:message) }
+
+    it { should validate_presence_of(:provider_id) }
+
+    it { should validate_presence_of(:user_id) }
   end
 end

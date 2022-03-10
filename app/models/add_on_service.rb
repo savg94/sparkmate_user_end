@@ -27,6 +27,8 @@ class AddOnService < ApplicationRecord
 
   # Validations
 
+  validates :request_id, presence: true
+
   # Scopes
 
   def to_s

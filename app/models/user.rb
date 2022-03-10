@@ -16,6 +16,10 @@ class User < ApplicationRecord
 
   # Validations
 
+  validates :last_name, presence: true
+
+  validates :name, presence: true
+
   # Scopes
 
   def to_s

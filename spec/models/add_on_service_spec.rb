@@ -9,5 +9,6 @@ RSpec.describe AddOnService, type: :model do
   end
 
   describe "Validations" do
+    it { should validate_presence_of(:request_id) }
   end
 end

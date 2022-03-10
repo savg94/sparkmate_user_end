@@ -58,6 +58,12 @@ class Request < ApplicationRecord
 
   # Validations
 
+  validates :pickup_datetime, presence: true
+
+  validates :pickup_location, presence: true
+
+  validates :user_id, presence: true
+
   # Scopes
 
   def to_s
