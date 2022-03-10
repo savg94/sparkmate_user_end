@@ -1,6 +1,10 @@
 class Request < ApplicationRecord
   # Direct associations
 
+  has_many   :active_gigs,
+             :class_name => "Gig",
+             :dependent => :destroy
+
   has_many   :add_on_services,
              :dependent => :destroy
 

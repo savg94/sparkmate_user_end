@@ -1,6 +1,8 @@
 class Gig < ApplicationRecord
   # Direct associations
 
+  belongs_to :request
+
   # Indirect associations
 
   # Validations
