@@ -51,7 +51,11 @@
 
       <dt>Request</dt>
       <!-- Display request_id start -->
-      <dd><%= add_on_service.request_id %></dd>
+      <dd>
+        <% if @add_on_service.request.present? %>
+          <%= link_to add_on_service.request, add_on_service.request %>
+        <% end %>
+      </dd>
       <!-- Display request_id end -->
 
     </dl>

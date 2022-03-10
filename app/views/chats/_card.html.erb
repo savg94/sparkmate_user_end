@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= chat.user_id %></dd>
+      <dd>
+        <% if @chat.user.present? %>
+          <%= link_to chat.user, chat.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Provider</dt>
       <!-- Display provider_id start -->
-      <dd><%= chat.provider_id %></dd>
+      <dd>
+        <% if @chat.provider.present? %>
+          <%= link_to chat.provider, chat.provider %>
+        <% end %>
+      </dd>
       <!-- Display provider_id end -->
 
       <dt>Message</dt>
@@ -22,7 +30,11 @@
 
       <dt>Gig</dt>
       <!-- Display gig_id start -->
-      <dd><%= chat.gig_id %></dd>
+      <dd>
+        <% if @chat.gig.present? %>
+          <%= link_to chat.gig, chat.gig %>
+        <% end %>
+      </dd>
       <!-- Display gig_id end -->
 
     </dl>

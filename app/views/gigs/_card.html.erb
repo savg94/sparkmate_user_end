@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Request</dt>
       <!-- Display request_id start -->
-      <dd><%= gig.request_id %></dd>
+      <dd>
+        <% if @gig.request.present? %>
+          <%= link_to gig.request, gig.request %>
+        <% end %>
+      </dd>
       <!-- Display request_id end -->
 
       <dt>Provider</dt>
       <!-- Display provider_id start -->
-      <dd><%= gig.provider_id %></dd>
+      <dd>
+        <% if @gig.provider.present? %>
+          <%= link_to gig.provider, gig.provider %>
+        <% end %>
+      </dd>
       <!-- Display provider_id end -->
 
       <dt>Status</dt>

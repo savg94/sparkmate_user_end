@@ -35,7 +35,11 @@
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= request.user_id %></dd>
+      <dd>
+        <% if @request.user.present? %>
+          <%= link_to request.user, request.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
     </dl>
