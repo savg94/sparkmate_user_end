@@ -10,6 +10,8 @@ class RequestResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :add_on_services
+
   belongs_to :user
 
   # Indirect associations

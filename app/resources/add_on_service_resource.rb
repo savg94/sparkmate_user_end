@@ -14,6 +14,8 @@ class AddOnServiceResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :request
+
   # Indirect associations
 
 end
