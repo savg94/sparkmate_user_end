@@ -15,4 +15,18 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :providers do
+    assign_each do |user, providers|
+      providers.select do |p|
+        p.id.in?(user.providers.map(&:id))
+      end
+    end
+  end
+
+
+  filter :provider_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:providers).where(:gigs => {:provider_id => value})
+    end
+  end
 end
