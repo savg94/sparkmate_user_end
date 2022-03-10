@@ -8,6 +8,8 @@ class ProvidersController < ApplicationController
 
   # GET /providers/1
   def show
+    @gig = Gig.new
+    @chat = Chat.new
   end
 
   # GET /providers/new

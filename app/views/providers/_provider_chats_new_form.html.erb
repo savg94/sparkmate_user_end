@@ -1,0 +1,42 @@
+<!-- Form chat start -->
+<%= form_with(model: @chat, local: true) do |f| %>
+<!-- Form chat end -->
+
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <%= f.label :user_id %>
+
+    <!-- Input for user_id start -->
+    <%= f.text_field :user_id, class: "form-control" %>
+    <!-- Input for user_id end -->
+  </div>
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for provider_id start -->
+  <!-- Input for provider_id start -->
+  <%= f.hidden_field :provider_id, value: @provider.id %>
+  <!-- Input for provider_id end -->
+  <!-- Label and input for provider_id end -->
+
+  <!-- Label and input for message start -->
+  <div class="form-group">
+    <%= f.label :message %>
+
+    <!-- Input for message start -->
+    <%= f.text_field :message, class: "form-control" %>
+    <!-- Input for message end -->
+  </div>
+  <!-- Label and input for message end -->
+
+  <!-- Label and input for gig_id start -->
+  <div class="form-group">
+    <%= f.label :gig_id %>
+
+    <!-- Input for gig_id start -->
+    <%= f.text_field :gig_id, class: "form-control" %>
+    <!-- Input for gig_id end -->
+  </div>
+  <!-- Label and input for gig_id end -->
+
+  <%= f.submit "Create chat", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

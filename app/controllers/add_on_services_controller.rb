@@ -24,7 +24,12 @@ class AddOnServicesController < ApplicationController
     @add_on_service = AddOnService.new(add_on_service_params)
 
     if @add_on_service.save
-      redirect_to @add_on_service, notice: 'Add on service was successfully created.'
+      message = 'AddOnService was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @add_on_service, notice: message
+      end
     else
       render :new
     end

@@ -1,0 +1,50 @@
+<!-- Form request start -->
+<%= form_with(model: @request, local: true) do |f| %>
+<!-- Form request end -->
+
+  <!-- Label and input for pickup_datetime start -->
+  <div class="form-group">
+    <%= f.label :pickup_datetime %>
+    <!-- Input for pickup_datetime start -->
+    <%= f.datetime_select :pickup_datetime, class: "form-control" %>
+    <!-- Input for pickup_datetime end -->
+  </div>
+  <!-- Label and input for pickup_datetime end -->
+
+  <!-- Label and input for pickup_location start -->
+  <div class="form-group">
+    <%= f.label :pickup_location %>
+
+    <!-- Input for pickup_location start -->
+    <%= f.text_field :pickup_location, class: "form-control" %>
+    <!-- Input for pickup_location end -->
+  </div>
+  <!-- Label and input for pickup_location end -->
+
+  <!-- Label and input for dropoff_datetime start -->
+  <div class="form-group">
+    <%= f.label :dropoff_datetime %>
+    <!-- Input for dropoff_datetime start -->
+    <%= f.datetime_select :dropoff_datetime, class: "form-control" %>
+    <!-- Input for dropoff_datetime end -->
+  </div>
+  <!-- Label and input for dropoff_datetime end -->
+
+  <!-- Label and input for dropoff_location start -->
+  <div class="form-group">
+    <%= f.label :dropoff_location %>
+
+    <!-- Input for dropoff_location start -->
+    <%= f.text_field :dropoff_location, class: "form-control" %>
+    <!-- Input for dropoff_location end -->
+  </div>
+  <!-- Label and input for dropoff_location end -->
+
+  <!-- Label and input for user_id start -->
+  <!-- Input for user_id start -->
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <!-- Input for user_id end -->
+  <!-- Label and input for user_id end -->
+
+  <%= f.submit "Create request", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

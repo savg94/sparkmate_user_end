@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @request = Request.new
+    @chat = Chat.new
   end
 
   # GET /users/new

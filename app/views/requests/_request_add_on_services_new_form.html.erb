@@ -1,0 +1,85 @@
+<!-- Form add_on_service start -->
+<%= form_with(model: @add_on_service, local: true) do |f| %>
+<!-- Form add_on_service end -->
+
+  <!-- Label and input for fast_charge start -->
+  <div class="form-check">
+    <!-- Input for fast_charge start -->
+    <%= f.check_box :fast_charge, class: "form-check-input" %>
+    <!-- Input for fast_charge end -->
+    <%= f.label :fast_charge, class: "form-check-label" %>
+  </div>
+  <!-- Label and input for fast_charge end -->
+
+  <!-- Label and input for regular_charge start -->
+  <div class="form-check">
+    <!-- Input for regular_charge start -->
+    <%= f.check_box :regular_charge, class: "form-check-input" %>
+    <!-- Input for regular_charge end -->
+    <%= f.label :regular_charge, class: "form-check-label" %>
+  </div>
+  <!-- Label and input for regular_charge end -->
+
+  <!-- Label and input for interior_cleaning start -->
+  <div class="form-check">
+    <!-- Input for interior_cleaning start -->
+    <%= f.check_box :interior_cleaning, class: "form-check-input" %>
+    <!-- Input for interior_cleaning end -->
+    <%= f.label :interior_cleaning, class: "form-check-label" %>
+  </div>
+  <!-- Label and input for interior_cleaning end -->
+
+  <!-- Label and input for exterior_cleaning start -->
+  <div class="form-check">
+    <!-- Input for exterior_cleaning start -->
+    <%= f.check_box :exterior_cleaning, class: "form-check-input" %>
+    <!-- Input for exterior_cleaning end -->
+    <%= f.label :exterior_cleaning, class: "form-check-label" %>
+  </div>
+  <!-- Label and input for exterior_cleaning end -->
+
+  <!-- Label and input for daily_checks start -->
+  <div class="form-check">
+    <!-- Input for daily_checks start -->
+    <%= f.check_box :daily_checks, class: "form-check-input" %>
+    <!-- Input for daily_checks end -->
+    <%= f.label :daily_checks, class: "form-check-label" %>
+  </div>
+  <!-- Label and input for daily_checks end -->
+
+  <!-- Label and input for scheduled_maintenance start -->
+  <div class="form-check">
+    <!-- Input for scheduled_maintenance start -->
+    <%= f.check_box :scheduled_maintenance, class: "form-check-input" %>
+    <!-- Input for scheduled_maintenance end -->
+    <%= f.label :scheduled_maintenance, class: "form-check-label" %>
+  </div>
+  <!-- Label and input for scheduled_maintenance end -->
+
+  <!-- Label and input for maintenance_datetime start -->
+  <div class="form-group">
+    <%= f.label :maintenance_datetime %>
+    <!-- Input for maintenance_datetime start -->
+    <%= f.datetime_select :maintenance_datetime, class: "form-control" %>
+    <!-- Input for maintenance_datetime end -->
+  </div>
+  <!-- Label and input for maintenance_datetime end -->
+
+  <!-- Label and input for maintenance_location start -->
+  <div class="form-group">
+    <%= f.label :maintenance_location %>
+
+    <!-- Input for maintenance_location start -->
+    <%= f.text_field :maintenance_location, class: "form-control" %>
+    <!-- Input for maintenance_location end -->
+  </div>
+  <!-- Label and input for maintenance_location end -->
+
+  <!-- Label and input for request_id start -->
+  <!-- Input for request_id start -->
+  <%= f.hidden_field :request_id, value: @request.id %>
+  <!-- Input for request_id end -->
+  <!-- Label and input for request_id end -->
+
+  <%= f.submit "Create add on service", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

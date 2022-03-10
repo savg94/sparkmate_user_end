@@ -8,6 +8,7 @@ class GigsController < ApplicationController
 
   # GET /gigs/1
   def show
+    @chat = Chat.new
   end
 
   # GET /gigs/new
@@ -24,7 +25,12 @@ class GigsController < ApplicationController
     @gig = Gig.new(gig_params)
 
     if @gig.save
-      redirect_to @gig, notice: 'Gig was successfully created.'
+      message = 'Gig was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @gig, notice: message
+      end
     else
       render :new
     end
