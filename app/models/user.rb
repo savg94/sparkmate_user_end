@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :requests,
+             :dependent => :nullify
+
   has_many   :chats,
              :dependent => :nullify
 
