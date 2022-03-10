@@ -12,7 +12,11 @@
 
       <dt>Pickup location</dt>
       <!-- Display pickup_location start -->
-      <dd><%= request.pickup_location %></dd>
+      <dd>
+        <div>
+          <%= render partial: "requests/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display pickup_location end -->
 
       <dt>Dropoff datetime</dt>
@@ -22,7 +26,11 @@
 
       <dt>Dropoff location</dt>
       <!-- Display dropoff_location start -->
-      <dd><%= request.dropoff_location %></dd>
+      <dd>
+        <div>
+          <%= render partial: "requests/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display dropoff_location end -->
 
       <dt>User</dt>

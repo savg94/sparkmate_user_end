@@ -6,6 +6,16 @@ class RequestsController < ApplicationController
   # GET /requests
   def index
     @requests = current_user.requests.page(params[:page]).per(10)
+    @location_hash = Gmaps4rails.build_markers(@requests.where.not(:dropoff_location_latitude => nil)) do |request, marker|
+      marker.lat request.dropoff_location_latitude
+      marker.lng request.dropoff_location_longitude
+      marker.infowindow "<h5><a href='/requests/#{request.id}'>#{request.pickup_datetime}</a></h5><small>#{request.dropoff_location_formatted_address}</small>"
+    end
+    @location_hash = Gmaps4rails.build_markers(@requests.where.not(:pickup_location_latitude => nil)) do |request, marker|
+      marker.lat request.pickup_location_latitude
+      marker.lng request.pickup_location_longitude
+      marker.infowindow "<h5><a href='/requests/#{request.id}'>#{request.pickup_datetime}</a></h5><small>#{request.pickup_location_formatted_address}</small>"
+    end
   end
 
   # GET /requests/1

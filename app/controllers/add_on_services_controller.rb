@@ -4,6 +4,11 @@ class AddOnServicesController < ApplicationController
   # GET /add_on_services
   def index
     @add_on_services = AddOnService.all
+    @location_hash = Gmaps4rails.build_markers(@add_on_services.where.not(:maintenance_location_latitude => nil)) do |add_on_service, marker|
+      marker.lat add_on_service.maintenance_location_latitude
+      marker.lng add_on_service.maintenance_location_longitude
+      marker.infowindow "<h5><a href='/add_on_services/#{add_on_service.id}'>#{add_on_service.created_at}</a></h5><small>#{add_on_service.maintenance_location_formatted_address}</small>"
+    end
   end
 
   # GET /add_on_services/1

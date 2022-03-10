@@ -42,7 +42,11 @@
 
       <dt>Maintenance location</dt>
       <!-- Display maintenance_location start -->
-      <dd><%= add_on_service.maintenance_location %></dd>
+      <dd>
+        <div>
+          <%= render partial: "add_on_services/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display maintenance_location end -->
 
       <dt>Request</dt>
