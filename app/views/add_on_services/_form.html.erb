@@ -1,0 +1,233 @@
+<% was_validated = add_on_service.errors.any? %>
+
+<%= form_with(model: add_on_service, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for fast_charge start -->
+  <div class="form-check">
+    <% fast_charge_class = "form-check-input" %>
+    <% fast_charge_was_invalid = add_on_service.errors.include?(:fast_charge) %>
+
+    <% if was_validated %>
+      <% if fast_charge_was_invalid %>
+        <% fast_charge_class << " is-invalid" %>
+      <% else %>
+        <% fast_charge_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :fast_charge, class: "form-check-label" do %>
+      <%= f.check_box :fast_charge, class: fast_charge_class %> Fast charge
+    <% end %>
+    <% if fast_charge_was_invalid %>
+      <% add_on_service.errors.full_messages_for(:fast_charge).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for fast_charge end -->
+  <!-- Label and input for regular_charge start -->
+  <div class="form-check">
+    <% regular_charge_class = "form-check-input" %>
+    <% regular_charge_was_invalid = add_on_service.errors.include?(:regular_charge) %>
+
+    <% if was_validated %>
+      <% if regular_charge_was_invalid %>
+        <% regular_charge_class << " is-invalid" %>
+      <% else %>
+        <% regular_charge_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :regular_charge, class: "form-check-label" do %>
+      <%= f.check_box :regular_charge, class: regular_charge_class %> Regular charge
+    <% end %>
+    <% if regular_charge_was_invalid %>
+      <% add_on_service.errors.full_messages_for(:regular_charge).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for regular_charge end -->
+  <!-- Label and input for interior_cleaning start -->
+  <div class="form-check">
+    <% interior_cleaning_class = "form-check-input" %>
+    <% interior_cleaning_was_invalid = add_on_service.errors.include?(:interior_cleaning) %>
+
+    <% if was_validated %>
+      <% if interior_cleaning_was_invalid %>
+        <% interior_cleaning_class << " is-invalid" %>
+      <% else %>
+        <% interior_cleaning_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :interior_cleaning, class: "form-check-label" do %>
+      <%= f.check_box :interior_cleaning, class: interior_cleaning_class %> Interior cleaning
+    <% end %>
+    <% if interior_cleaning_was_invalid %>
+      <% add_on_service.errors.full_messages_for(:interior_cleaning).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for interior_cleaning end -->
+  <!-- Label and input for exterior_cleaning start -->
+  <div class="form-check">
+    <% exterior_cleaning_class = "form-check-input" %>
+    <% exterior_cleaning_was_invalid = add_on_service.errors.include?(:exterior_cleaning) %>
+
+    <% if was_validated %>
+      <% if exterior_cleaning_was_invalid %>
+        <% exterior_cleaning_class << " is-invalid" %>
+      <% else %>
+        <% exterior_cleaning_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :exterior_cleaning, class: "form-check-label" do %>
+      <%= f.check_box :exterior_cleaning, class: exterior_cleaning_class %> Exterior cleaning
+    <% end %>
+    <% if exterior_cleaning_was_invalid %>
+      <% add_on_service.errors.full_messages_for(:exterior_cleaning).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for exterior_cleaning end -->
+  <!-- Label and input for daily_checks start -->
+  <div class="form-check">
+    <% daily_checks_class = "form-check-input" %>
+    <% daily_check_was_invalid = add_on_service.errors.include?(:daily_check) %>
+
+    <% if was_validated %>
+      <% if daily_check_was_invalid %>
+        <% daily_check_class << " is-invalid" %>
+      <% else %>
+        <% daily_check_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :daily_check, class: "form-check-label" do %>
+      <%= f.check_box :daily_check, class: daily_check_class %> Daily check
+    <% end %>
+    <% if daily_check_was_invalid %>
+      <% add_on_service.errors.full_messages_for(:daily_check).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for daily_checks end -->
+  <!-- Label and input for scheduled_maintenance start -->
+  <div class="form-check">
+    <% scheduled_maintenance_class = "form-check-input" %>
+    <% scheduled_maintenance_was_invalid = add_on_service.errors.include?(:scheduled_maintenance) %>
+
+    <% if was_validated %>
+      <% if scheduled_maintenance_was_invalid %>
+        <% scheduled_maintenance_class << " is-invalid" %>
+      <% else %>
+        <% scheduled_maintenance_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :scheduled_maintenance, class: "form-check-label" do %>
+      <%= f.check_box :scheduled_maintenance, class: scheduled_maintenance_class %> Scheduled maintenance
+    <% end %>
+    <% if scheduled_maintenance_was_invalid %>
+      <% add_on_service.errors.full_messages_for(:scheduled_maintenance).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for scheduled_maintenance end -->
+  <!-- Label and input for maintenance_datetime start -->
+  <div class="form-group">
+    <% maintenance_datetime_class = "form-control" %>
+    <% maintenance_datetime_was_invalid = add_on_service.errors.include?(:maintenance_datetime) %>
+
+    <% if was_validated %>
+      <% if maintenance_datetime_was_invalid %>
+        <% maintenance_datetime_class << " is-invalid" %>
+      <% else %>
+        <% maintenance_datetime_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :maintenance_datetime %>
+    <!-- Input for maintenance_datetime start -->
+    <%= f.datetime_select :maintenance_datetime, class: maintenance_datetime_class, placeholder: "Enter maintenance datetime" %>
+    <!-- Input for maintenance_datetime end -->
+    <% if maintenance_datetime_was_invalid %>
+      <% add_on_service.errors.full_messages_for(:maintenance_datetime).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for maintenance_datetime end -->
+  <!-- Label and input for maintenance_location start -->
+  <div class="form-group">
+    <% maintenance_location_class = "form-control" %>
+    <% maintenance_location_was_invalid = add_on_service.errors.include?(:maintenance_location) %>
+
+    <% if was_validated %>
+      <% if maintenance_location_was_invalid %>
+        <% maintenance_location_class << " is-invalid" %>
+      <% else %>
+        <% maintenance_location_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :maintenance_location %>
+    <!-- Input for maintenance_location start -->
+    <%= f.text_field :maintenance_location, class: maintenance_location_class, placeholder: "Enter maintenance location" %>
+    <!-- Input for maintenance_location end -->
+    <% if maintenance_location_was_invalid %>
+      <% add_on_service.errors.full_messages_for(:maintenance_location).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for maintenance_location end -->
+  <!-- Label and input for request_id start -->
+  <div class="form-group">
+    <% request_class = "form-control" %>
+    <% request_was_invalid = add_on_service.errors.include?(:request) %>
+
+    <% if was_validated %>
+      <% if request_was_invalid %>
+        <% request_class << " is-invalid" %>
+      <% else %>
+        <% request_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :request_id %>
+    <!-- Input for request_id start -->
+    <%= f.number_field :request_id, class: request_class, placeholder: "Enter request" %>
+    <!-- Input for request_id end -->
+    <% if request_was_invalid %>
+      <% add_on_service.errors.full_messages_for(:request).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for request_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

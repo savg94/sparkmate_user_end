@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :add_on_services
   resources :requests
   devise_for :users
   resources :users
