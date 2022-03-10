@@ -1,10 +1,10 @@
-require 'open-uri'
+require "open-uri"
 class Request < ApplicationRecord
   before_validation :geocode_dropoff_location
 
   def geocode_dropoff_location
-    if self.dropoff_location.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.dropoff_location)}"
+    if dropoff_location.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(dropoff_location)}"
 
       raw_data = open(url).read
 
@@ -22,8 +22,8 @@ class Request < ApplicationRecord
   before_validation :geocode_pickup_location
 
   def geocode_pickup_location
-    if self.pickup_location.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.pickup_location)}"
+    if pickup_location.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(pickup_location)}"
 
       raw_data = open(url).read
 
@@ -41,20 +41,20 @@ class Request < ApplicationRecord
   # Direct associations
 
   has_many   :active_gigs,
-             :class_name => "Gig",
-             :dependent => :destroy
+             class_name: "Gig",
+             dependent: :destroy
 
   has_many   :add_on_services,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :user,
-             :counter_cache => true
+             counter_cache: true
 
   # Indirect associations
 
   has_many   :providers,
-             :through => :active_gigs,
-             :source => :provider
+             through: :active_gigs,
+             source: :provider
 
   # Validations
 
@@ -63,5 +63,4 @@ class Request < ApplicationRecord
   def to_s
     pickup_datetime
   end
-
 end

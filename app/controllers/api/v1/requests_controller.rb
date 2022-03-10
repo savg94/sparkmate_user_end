@@ -13,7 +13,7 @@ class Api::V1::RequestsController < Api::V1::GraphitiController
     request = RequestResource.build(params)
 
     if request.save
-      render jsonapi: request, status: 201
+      render jsonapi: request, status: :created
     else
       render jsonapi_errors: request
     end
@@ -33,7 +33,7 @@ class Api::V1::RequestsController < Api::V1::GraphitiController
     request = RequestResource.find(params)
 
     if request.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: request
     end

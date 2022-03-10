@@ -13,7 +13,7 @@ class Api::V1::ChatsController < Api::V1::GraphitiController
     chat = ChatResource.build(params)
 
     if chat.save
-      render jsonapi: chat, status: 201
+      render jsonapi: chat, status: :created
     else
       render jsonapi_errors: chat
     end
@@ -33,7 +33,7 @@ class Api::V1::ChatsController < Api::V1::GraphitiController
     chat = ChatResource.find(params)
 
     if chat.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: chat
     end

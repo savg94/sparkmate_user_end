@@ -13,7 +13,7 @@ class Api::V1::AddOnServicesController < Api::V1::GraphitiController
     add_on_service = AddOnServiceResource.build(params)
 
     if add_on_service.save
-      render jsonapi: add_on_service, status: 201
+      render jsonapi: add_on_service, status: :created
     else
       render jsonapi_errors: add_on_service
     end
@@ -33,7 +33,7 @@ class Api::V1::AddOnServicesController < Api::V1::GraphitiController
     add_on_service = AddOnServiceResource.find(params)
 
     if add_on_service.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: add_on_service
     end

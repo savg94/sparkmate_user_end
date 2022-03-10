@@ -1,19 +1,18 @@
 class User < ApplicationRecord
-  
   include JwtToken
-# Direct associations
+  # Direct associations
 
   has_many   :requests,
-             :dependent => :nullify
+             dependent: :nullify
 
   has_many   :chats,
-             :dependent => :nullify
+             dependent: :nullify
 
   # Indirect associations
 
   has_many   :providers,
-             :through => :requests,
-             :source => :providers
+             through: :requests,
+             source: :providers
 
   # Validations
 

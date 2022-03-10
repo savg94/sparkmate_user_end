@@ -13,7 +13,7 @@ class Api::V1::ProvidersController < Api::V1::GraphitiController
     provider = ProviderResource.build(params)
 
     if provider.save
-      render jsonapi: provider, status: 201
+      render jsonapi: provider, status: :created
     else
       render jsonapi_errors: provider
     end
@@ -33,7 +33,7 @@ class Api::V1::ProvidersController < Api::V1::GraphitiController
     provider = ProviderResource.find(params)
 
     if provider.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: provider
     end

@@ -1,22 +1,17 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Gig, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should have_many(:chats) }
 
     it { should belong_to(:provider) }
 
     it { should belong_to(:request) }
+  end
 
-    end
+  describe "InDirect Associations" do
+  end
 
-    describe "InDirect Associations" do
-
-    end
-
-    describe "Validations" do
-
-    end
+  describe "Validations" do
+  end
 end

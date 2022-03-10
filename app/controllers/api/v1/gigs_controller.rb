@@ -13,7 +13,7 @@ class Api::V1::GigsController < Api::V1::GraphitiController
     gig = GigResource.build(params)
 
     if gig.save
-      render jsonapi: gig, status: 201
+      render jsonapi: gig, status: :created
     else
       render jsonapi_errors: gig
     end
@@ -33,7 +33,7 @@ class Api::V1::GigsController < Api::V1::GraphitiController
     gig = GigResource.find(params)
 
     if gig.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: gig
     end

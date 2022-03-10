@@ -2,21 +2,21 @@ class Provider < ApplicationRecord
   # Direct associations
 
   has_many   :active_gigs,
-             :class_name => "Gig",
-             :dependent => :nullify
+             class_name: "Gig",
+             dependent: :nullify
 
   has_many   :chats,
-             :dependent => :nullify
+             dependent: :nullify
 
   # Indirect associations
 
   has_many   :requests,
-             :through => :active_gigs,
-             :source => :request
+             through: :active_gigs,
+             source: :request
 
   has_many   :users,
-             :through => :requests,
-             :source => :user
+             through: :requests,
+             source: :user
 
   # Validations
 
@@ -25,5 +25,4 @@ class Provider < ApplicationRecord
   def to_s
     name
   end
-
 end

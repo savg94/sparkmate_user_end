@@ -20,5 +20,4 @@ class RequestResource < ApplicationResource
   # Indirect associations
 
   many_to_many :providers
-
 end

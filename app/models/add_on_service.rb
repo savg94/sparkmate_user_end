@@ -1,10 +1,10 @@
-require 'open-uri'
+require "open-uri"
 class AddOnService < ApplicationRecord
   before_validation :geocode_maintenance_location
 
   def geocode_maintenance_location
-    if self.maintenance_location.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.maintenance_location)}"
+    if maintenance_location.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(maintenance_location)}"
 
       raw_data = open(url).read
 
@@ -32,5 +32,4 @@ class AddOnService < ApplicationRecord
   def to_s
     created_at
   end
-
 end

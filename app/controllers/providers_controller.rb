@@ -1,10 +1,11 @@
 class ProvidersController < ApplicationController
-  before_action :set_provider, only: [:show, :edit, :update, :destroy]
+  before_action :set_provider, only: %i[show edit update destroy]
 
   # GET /providers
   def index
     @q = Provider.ransack(params[:q])
-    @providers = @q.result(:distinct => true).includes(:chats, :active_gigs, :users, :requests).page(params[:page]).per(10)
+    @providers = @q.result(distinct: true).includes(:chats, :active_gigs,
+                                                    :users, :requests).page(params[:page]).per(10)
   end
 
   # GET /providers/1
@@ -19,15 +20,14 @@ class ProvidersController < ApplicationController
   end
 
   # GET /providers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /providers
   def create
     @provider = Provider.new(provider_params)
 
     if @provider.save
-      redirect_to @provider, notice: 'Provider was successfully created.'
+      redirect_to @provider, notice: "Provider was successfully created."
     else
       render :new
     end
@@ -36,7 +36,7 @@ class ProvidersController < ApplicationController
   # PATCH/PUT /providers/1
   def update
     if @provider.update(provider_params)
-      redirect_to @provider, notice: 'Provider was successfully updated.'
+      redirect_to @provider, notice: "Provider was successfully updated."
     else
       render :edit
     end
@@ -45,17 +45,18 @@ class ProvidersController < ApplicationController
   # DELETE /providers/1
   def destroy
     @provider.destroy
-    redirect_to providers_url, notice: 'Provider was successfully destroyed.'
+    redirect_to providers_url, notice: "Provider was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_provider
-      @provider = Provider.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def provider_params
-      params.require(:provider).permit(:name, :last_name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_provider
+    @provider = Provider.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def provider_params
+    params.require(:provider).permit(:name, :last_name)
+  end
 end

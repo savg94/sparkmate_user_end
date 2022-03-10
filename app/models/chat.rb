@@ -4,10 +4,10 @@ class Chat < ApplicationRecord
   belongs_to :gig
 
   belongs_to :provider,
-             :counter_cache => true
+             counter_cache: true
 
   belongs_to :user,
-             :counter_cache => true
+             counter_cache: true
 
   # Indirect associations
 
@@ -18,5 +18,4 @@ class Chat < ApplicationRecord
   def to_s
     user.to_s
   end
-
 end

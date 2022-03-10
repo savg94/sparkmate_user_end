@@ -24,10 +24,9 @@ class ProviderResource < ApplicationResource
     end
   end
 
-
   filter :user_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:users).where(:requests => {:user_id => value})
+      scope.eager_load(:users).where(requests: { user_id: value })
     end
   end
 end

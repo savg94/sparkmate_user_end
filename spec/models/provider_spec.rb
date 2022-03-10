@@ -1,24 +1,18 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Provider, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should have_many(:active_gigs) }
 
     it { should have_many(:chats) }
+  end
 
-    end
-
-    describe "InDirect Associations" do
-
+  describe "InDirect Associations" do
     it { should have_many(:requests) }
 
     it { should have_many(:users) }
+  end
 
-    end
-
-    describe "Validations" do
-
-    end
+  describe "Validations" do
+  end
 end

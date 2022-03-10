@@ -15,5 +15,4 @@ class GigResource < ApplicationResource
   belongs_to :request
 
   # Indirect associations
-
 end

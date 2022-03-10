@@ -4,7 +4,7 @@ class Gig < ApplicationRecord
   has_many   :chats
 
   belongs_to :provider,
-             :counter_cache => :active_gigs_count
+             counter_cache: :active_gigs_count
 
   belongs_to :request
 
@@ -17,5 +17,4 @@ class Gig < ApplicationRecord
   def to_s
     request.to_s
   end
-
 end
