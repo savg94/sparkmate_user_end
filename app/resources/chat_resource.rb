@@ -9,6 +9,8 @@ class ChatResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :provider
+
   belongs_to :user
 
   # Indirect associations
