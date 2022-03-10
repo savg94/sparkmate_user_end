@@ -3,7 +3,7 @@ class GigsController < ApplicationController
 
   # GET /gigs
   def index
-    @gigs = Gig.all
+    @gigs = Gig.page(params[:page]).per(10)
   end
 
   # GET /gigs/1

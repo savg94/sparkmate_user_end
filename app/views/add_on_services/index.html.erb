@@ -38,6 +38,10 @@
       <div class="list-group list-group-flush">
         <%= render collection: @add_on_services, partial: "list_item", as: :add_on_service %>
       </div>
+      <div class="card-footer d-flex justify-content-center">
+        <%= paginate @add_on_services, theme: 'twitter-bootstrap-4' %>
+      </div>
+
     </div>
   </div>
 </div>
