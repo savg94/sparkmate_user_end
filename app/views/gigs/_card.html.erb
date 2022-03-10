@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Gig #<%= gig.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Request</dt>
+      <!-- Display request_id start -->
+      <dd><%= gig.request_id %></dd>
+      <!-- Display request_id end -->
+
+      <dt>Provider</dt>
+      <!-- Display provider_id start -->
+      <dd><%= gig.provider_id %></dd>
+      <!-- Display provider_id end -->
+
+      <dt>Status</dt>
+      <!-- Display status start -->
+      <dd><%= gig.status %></dd>
+      <!-- Display status end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back gig, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link gig start -->
+      <div class="col">
+        <%= link_to edit_gig_url(gig), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link gig end -->
+
+      <!-- Delete link gig start -->
+      <div class="col">
+        <%= link_to gig, method: :delete, data: { confirm: "Do you really want to delete this gig?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link gig end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(gig.updated_at) %> ago
+  </div>
+</div>
