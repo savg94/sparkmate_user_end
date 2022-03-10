@@ -14,6 +14,8 @@ class ProviderResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :requests
+
   has_many :users do
     assign_each do |provider, users|
       users.select do |u|
