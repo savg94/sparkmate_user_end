@@ -42,7 +42,7 @@
 
     <%= f.label :provider_id %>
     <!-- Input for provider_id start -->
-    <%= f.number_field :provider_id, class: provider_class, placeholder: "Enter provider" %>
+    <%= f.collection_select :provider_id, Provider.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for provider_id end -->
     <% if provider_was_invalid %>
       <% chat.errors.full_messages_for(:provider).each do |message| %>
