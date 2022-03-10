@@ -42,8 +42,14 @@ class GigsController < ApplicationController
   # DELETE /gigs/1
   def destroy
     @gig.destroy
-    redirect_to gigs_url, notice: 'Gig was successfully destroyed.'
+    message = "Gig was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to gigs_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

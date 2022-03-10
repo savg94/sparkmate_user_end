@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Add On Services
+
+    <a data-toggle="collapse" href="#request_add_on_services_new_form">
+      Add add on service
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @request.add_on_services.each do |add_on_service| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to add_on_service, add_on_service %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to add_on_service, method: :delete, data: { confirm: "Do you really want to delete this add_on_service" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="request_add_on_services_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

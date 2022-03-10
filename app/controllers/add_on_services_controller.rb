@@ -42,8 +42,14 @@ class AddOnServicesController < ApplicationController
   # DELETE /add_on_services/1
   def destroy
     @add_on_service.destroy
-    redirect_to add_on_services_url, notice: 'Add on service was successfully destroyed.'
+    message = "AddOnService was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to add_on_services_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

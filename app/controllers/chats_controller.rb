@@ -42,8 +42,14 @@ class ChatsController < ApplicationController
   # DELETE /chats/1
   def destroy
     @chat.destroy
-    redirect_to chats_url, notice: 'Chat was successfully destroyed.'
+    message = "Chat was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to chats_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
