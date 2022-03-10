@@ -33,7 +33,7 @@
     <%= f.label :gig_id %>
 
     <!-- Input for gig_id start -->
-    <%= f.text_field :gig_id, class: "form-control" %>
+    <%= f.collection_select :gig_id, Gig.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for gig_id end -->
   </div>
   <!-- Label and input for gig_id end -->

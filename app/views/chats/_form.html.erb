@@ -94,7 +94,7 @@
 
     <%= f.label :gig_id %>
     <!-- Input for gig_id start -->
-    <%= f.number_field :gig_id, class: gig_class, placeholder: "Enter gig" %>
+    <%= f.collection_select :gig_id, Gig.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for gig_id end -->
     <% if gig_was_invalid %>
       <% chat.errors.full_messages_for(:gig).each do |message| %>
