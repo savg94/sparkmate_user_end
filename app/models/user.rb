@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :chats,
+             :dependent => :nullify
+
   # Indirect associations
 
   # Validations
