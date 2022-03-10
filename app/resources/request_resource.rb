@@ -10,6 +10,9 @@ class RequestResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :active_gigs,
+             resource: GigResource
+
   has_many   :add_on_services
 
   belongs_to :user
