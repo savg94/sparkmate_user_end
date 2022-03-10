@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "requests#index"
   resources :chats
   resources :gigs
   resources :providers
